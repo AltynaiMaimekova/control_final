@@ -3,11 +3,12 @@
 
   <div class="form-inputs">
     <%= f.input :title %>
-    <%= f.input :Description %>
+    <%= f.input :description %>
     <%= f.input :agreement %>
     <%= f.input :status %>
     <%= f.association :category %>
     <%= f.association :user %>
+    <%= f.file_field :image %>
   </div>
 
   <div class="form-actions">
