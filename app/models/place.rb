@@ -1,4 +1,5 @@
 class Place < ApplicationRecord
+  paginates_per 20
   has_many :reviews, dependent: :destroy
   has_many :pictures, dependent: :destroy
   belongs_to :category

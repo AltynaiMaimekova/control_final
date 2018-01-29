@@ -5,7 +5,7 @@ class PlacesController < ApplicationController
   # GET /places
   # GET /places.json
   def index
-    @places = Place.all
+    @places = Place.all.order('created_at DESC').page params[:page]
     @categories = Category.all
   end
 
@@ -13,6 +13,7 @@ class PlacesController < ApplicationController
   # GET /places/1.json
   def show
     @review = Review.new
+    @reviews = @place.reviews.order('created_at DESC')
   end
 
   # GET /places/new
