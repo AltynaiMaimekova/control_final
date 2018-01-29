@@ -1,6 +1,7 @@
 class PicturesController < ApplicationController
   before_action :set_picture, only: [:destroy]
   before_action :set_place
+  before_action :authenticate_user!
 
   # GET /pictures
   # GET /pictures.json
