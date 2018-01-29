@@ -19,7 +19,7 @@
     Galery</div><br></h3>
       <% @place.pictures.each do |picture| %>   
         <div class='col-xs-12 col-md-2 col-md-offset-1'>
-          <%= image_tag @place.image.url(:thumb) %>
+          <%= image_tag picture.image.url(:thumb) %>
         </div>
      <% end %>    
   </div>
@@ -47,11 +47,12 @@
       Reviews</div><br></h3>
     <% @place.reviews.each do |review| %>
     <div class='col-xs-12 col-md-10 col-md-offset-1'>
-       <b>On <%= review.created_at %>, <%= review.user.name %> said: </b><br>
+       <b>On <%= review.created_at %>, <%= link_to review.user.name, edit_user_registration_path(@user)%> said: </b><br>
+
        <p><%=review.content%></p>
-       <p>Quality of food: <%=@place.reviews.average(:food).round(1) %> </p>   
-       <p>Service quality: <%=@place.reviews.average(:service).round(1) %> </p>
-       <p>Interior: <%=@place.reviews.average(:interior).round(1) %> </p>
+       <p>Quality of food: <%=review.food.round(1) %> </p>   
+       <p>Service quality: <%=review.service.round(1) %> </p>
+       <p>Interior: <%=review.interior.round(1) %> </p>
        <p>----------------------------------------------------------------------------------------------------------------</p>
   </div>
   <% end %>
@@ -71,45 +72,27 @@
         Interior: <%= f.select :interior, [5,4,3,2,1] %><br>
       <%= f.button :submit %>
      <% end %>
+       <p>----------------------------------------------------------------------------------------------------------------</p>
      </div>     
     </div>
   </div><br>
 <% end %>
 
 
-<!-- <p>
-  <%= image_tag @place.image.url(:medium) %>
-</p>
+<% if user_signed_in? %>
+  <div class = 'container'>
+    <div class="row">
+      <h3><div class='col-xs-12 col-md-10 col-md-offset-1'>
+        Upload new photo</div><br></h3>
+      <div class='col-xs-12 col-md-10 col-md-offset-1'>
+     <%= form_for [@place, @place.pictures.build] do |f| %>
+        <%= f.file_field :image %>
+      <%= f.button :submit %>
+     <% end %>
+     </div>     
+    </div>
+  </div><br>
+<% end %>
 
-<p>
-  <strong>Title:</strong>
-  <%= @place.title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @place.description %>
-</p>
-
-<p>
-  <strong>Agreement:</strong>
-  <%= @place.agreement %>
-</p>
-
-<p>
-  <strong>Status:</strong>
-  <%= @place.status %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @place.category.name %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @place.user.name %>
-</p>
- -->
 <%= link_to 'Edit', edit_place_path(@place) %> |
 <%= link_to 'Back', places_path %>
