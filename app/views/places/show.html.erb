@@ -13,6 +13,7 @@
   </div><br>
 </div>
 
+<% if @place.pictures.length != 0 %>
 <div class = 'container'>
   <div class="row">
   <h3><div class='col-xs-12 col-md-2 col-md-offset-1'>
@@ -24,6 +25,7 @@
      <% end %>    
   </div>
 </div><br>
+<% end %>
 
 
 <% if @place.reviews.length != 0 %>
