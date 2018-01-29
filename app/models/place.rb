@@ -1,4 +1,6 @@
 class Place < ApplicationRecord
+  has_many :reviews, dependent: :destroy
+  has_many :pictures, dependent: :destroy
   belongs_to :category
   belongs_to :user
   has_attached_file :image,
