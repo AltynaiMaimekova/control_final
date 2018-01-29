@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @place.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @place.Description %>
+</p>
+
+<p>
+  <strong>Agreement:</strong>
+  <%= @place.agreement %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @place.status %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @place.category %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @place.user %>
+</p>
+
+<%= link_to 'Edit', edit_place_path(@place) %> |
+<%= link_to 'Back', places_path %>

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  content: MyText
+  food: 1
+  service: 1
+  interior: 1
+  place: one
+  user: one
+
+two:
+  content: MyText
+  food: 1
+  service: 1
+  interior: 1
+  place: two
+  user: two

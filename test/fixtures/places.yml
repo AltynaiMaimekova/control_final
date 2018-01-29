@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  Description: MyText
+  agreement: false
+  status: false
+  category: one
+  user: one
+
+two:
+  title: MyString
+  Description: MyText
+  agreement: false
+  status: false
+  category: two
+  user: two
