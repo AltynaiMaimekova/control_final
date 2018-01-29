@@ -18,14 +18,14 @@
     </div>
     <div class="col-sm-9 col-lg-9">
       <% @places.each do |place| %>
+       <% if place.status == true %>
         <div class = "notice">
           <%= link_to (image_tag place.image.url(:medium)), place_path(place) %><br>
-<!--           <b><span style="font-size:15px;">Category: <%= link_to place.category.name, category_path(place.category_id) %></span></b><br> -->
           <span style="font-size:20px;"><%= link_to place.title, place %></span><br>
           <span>(<%= average_score(place)%>, <%= place.reviews.length %> reviews)</span><br>
           <span><%= place.pictures.length %> photos</span>
-<!--           <p>by <%=place.user.name %></p> -->
         </div><br>
+        <% end %>
       <% end %>
     </div> 
   </div>

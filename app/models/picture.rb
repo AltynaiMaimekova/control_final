@@ -8,4 +8,5 @@ class Picture < ApplicationRecord
                     content_type: ['image/jpeg', 'image/gif', 'image/png']
   validates :user_id, presence: true
   validates :place_id, presence: true
+  validates :image, presence: true
 end

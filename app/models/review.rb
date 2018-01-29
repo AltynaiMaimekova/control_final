@@ -9,7 +9,5 @@ class Review < ApplicationRecord
   validates :food, presence: true
   validates :service, presence: true
   validates :interior, presence: true
-  validates :agreement, presence: true
-  validates :image, presence: true
 
 end

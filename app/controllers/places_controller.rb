@@ -33,7 +33,7 @@ class PlacesController < ApplicationController
 
     respond_to do |format|
       if @place.save
-        format.html { redirect_to @place, notice: 'Place was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Your place will be added after moderator reviews it.'}
         format.json { render :show, status: :created, location: @place }
       else
         format.html { render :new }
